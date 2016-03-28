@@ -1,0 +1,26 @@
+<div ng-show="loading">
+	<h3><i class="fa fa-spinner fa-pulse"></i> Loading last entries...</h3>
+</div>
+
+<div class="row" ng-hide="loading" ng-show="_entries.length > 0">
+	<div class="col-lg-12">
+	
+		<h3>Last Entries</h3>
+
+		<table class="table">
+			<tr>
+				<th>Employee</th>
+				<th>Arrived at</th>
+				<th>Late by (tolerance: xxx time)</th>
+				<th>Left at</th>
+			</tr>
+			<tr ng-repeat="entry in _entries">
+				<td>{{entry.employee.name}} {{entry.employee.lastName}}</td>
+				<td>{{entry.arrivedAt | date: 'shortTime'}} ({{entry.arrivedAt | longAgo}})</td>
+				<td>...</td>
+				<td>{{entry.leftAt | date: 'shortTime'}}</td>
+			</tr>
+		</table>
+	
+	</div>
+</div>
